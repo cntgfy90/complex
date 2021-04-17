@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [secrets.SOME_SECRET]
+        node-version: [10.x, 12.x, 14.x, 15.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -24,5 +24,5 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: ${{ secrets.SOME_SECRET }}
     - run: npm version
